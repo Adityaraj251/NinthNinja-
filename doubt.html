@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Doubt Solving - Ninth Ninja</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      color: #0d47a1;
+      text-align: center;
+    }
+    .doubt-box, .admin-box {
+      background: #ffffff;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    textarea {
+      width: 100%;
+      height: 80px;
+      margin-top: 10px;
+      padding: 10px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #2196f3;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .doubt {
+      margin-bottom: 10px;
+      padding: 10px;
+      background: #e3f2fd;
+      border-left: 4px solid #2196f3;
+    }
+    .answer {
+      background: #c8e6c9;
+      margin-left: 20px;
+      padding: 10px;
+      border-left: 4px solid #388e3c;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Post Your Doubt</h1>
+
+  <div class="doubt-box">
+    <label for="doubtInput">Your Doubt:</label>
+    <textarea id="doubtInput" placeholder="Write your doubt here..."></textarea>
+    <button onclick="postDoubt()">Submit Doubt</button>
+  </div>
+
+  <h2>All Doubts</h2>
+  <div id="doubtList"></div>
+
+  <!-- Admin Answer Section -->
+  <div class="admin-box" id="adminBox" style="display:none;">
+    <h2>Admin Answer Panel</h2>
+    <label for="answerInput">Answer:</label>
+    <textarea id="answerInput" placeholder="Type your answer..."></textarea>
+    <button onclick="submitAnswer()">Post Answer</button>
+  </div>
+
+  <script>
+    let doubts = JSON.parse(localStorage.getItem('doubts')) || [];
+    let selectedDoubtIndex = null;
+
+    function postDoubt() {
+      const text = document.getElementById("doubtInput").value.trim();
+      if (text === "") return;
+      doubts.push({ question: text, answer: "" });
+      localStorage.setItem("doubts", JSON.stringify(doubts));
+      document.getElementById("doubtInput").value = "";
+      loadDoubts();
+    }
+
+    function loadDoubts() {
+      const list = document.getElementById("doubtList");
+      list.innerHTML = "";
+
+      doubts.forEach((item, index) => {
+        const doubtDiv = document.createElement("div");
+        doubtDiv.className = "doubt";
+        doubtDiv.innerHTML = `
+          <strong>Doubt:</strong> ${item.question}
+          ${item.answer ? `<div class="answer"><strong>Answer:</strong> ${item.answer}</div>` : ""}
+          ${isAdmin() && !item.answer ? `<br><button onclick="showAnswerBox(${index})">Answer</button>` : ""}
+        `;
+        list.appendChild(doubtDiv);
+      });
+    }
+
+    function showAnswerBox(index) {
+      selectedDoubtIndex = index;
+      document.getElementById("adminBox").style.display = "block";
+    }
+
+    function submitAnswer() {
+      const ans = document.getElementById("answerInput").value.trim();
+      if (ans === "") return;
+      doubts[selectedDoubtIndex].answer = ans;
+      localStorage.setItem("doubts", JSON.stringify(doubts));
+      document.getElementById("answerInput").value = "";
+      document.getElementById("adminBox").style.display = "none";
+      loadDoubts();
+    }
+
+    // Replace this with real login check later
+    function isAdmin() {
+      // You can use a secret URL or password system
+      return window.location.href.includes("admin=true"); // Add `?admin=true` in URL
+    }
+
+    loadDoubts();
+  </script>
+
+</body>
+</html>
