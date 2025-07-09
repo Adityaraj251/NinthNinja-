@@ -11,36 +11,27 @@
       max-width: 800px;
       margin: auto;
     }
-    h1 {
-      color: #0d47a1;
+    h1, h2 {
       text-align: center;
     }
-    .doubt-box, .admin-box {
-      background: #ffffff;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    textarea {
+    textarea, input[type="password"] {
       width: 100%;
-      height: 80px;
-      margin-top: 10px;
       padding: 10px;
+      margin-top: 10px;
     }
     button {
-      margin-top: 10px;
       padding: 10px 20px;
       background-color: #2196f3;
       color: white;
       border: none;
       cursor: pointer;
       border-radius: 6px;
+      margin-top: 10px;
     }
     .doubt {
-      margin-bottom: 10px;
-      padding: 10px;
+      margin: 15px 0;
       background: #e3f2fd;
+      padding: 10px;
       border-left: 4px solid #2196f3;
     }
     .answer {
@@ -49,25 +40,37 @@
       padding: 10px;
       border-left: 4px solid #388e3c;
     }
+    #adminLogin {
+      margin: 20px auto;
+      max-width: 400px;
+      background: #fff3cd;
+      padding: 20px;
+      border-radius: 8px;
+    }
   </style>
 </head>
 <body>
 
   <h1>Post Your Doubt</h1>
 
-  <div class="doubt-box">
-    <label for="doubtInput">Your Doubt:</label>
-    <textarea id="doubtInput" placeholder="Write your doubt here..."></textarea>
+  <div>
+    <textarea id="doubtInput" placeholder="Write your doubt..."></textarea>
     <button onclick="postDoubt()">Submit Doubt</button>
   </div>
 
   <h2>All Doubts</h2>
   <div id="doubtList"></div>
 
-  <!-- Admin Answer Section -->
-  <div class="admin-box" id="adminBox" style="display:none;">
-    <h2>Admin Answer Panel</h2>
-    <label for="answerInput">Answer:</label>
+  <!-- Admin Login -->
+  <div id="adminLogin">
+    <h3>Admin Login (Only for Aditya)</h3>
+    <input type="password" id="adminPassword" placeholder="Enter admin password">
+    <button onclick="loginAsAdmin()">Login</button>
+  </div>
+
+  <!-- Admin Answer Box -->
+  <div id="adminAnswerBox" style="display:none;">
+    <h3>Post Answer (Admin Only)</h3>
     <textarea id="answerInput" placeholder="Type your answer..."></textarea>
     <button onclick="submitAnswer()">Post Answer</button>
   </div>
@@ -75,6 +78,7 @@
   <script>
     let doubts = JSON.parse(localStorage.getItem('doubts')) || [];
     let selectedDoubtIndex = null;
+    let isAdmin = false;
 
     function postDoubt() {
       const text = document.getElementById("doubtInput").value.trim();
@@ -95,7 +99,7 @@
         doubtDiv.innerHTML = `
           <strong>Doubt:</strong> ${item.question}
           ${item.answer ? `<div class="answer"><strong>Answer:</strong> ${item.answer}</div>` : ""}
-          ${isAdmin() && !item.answer ? `<br><button onclick="showAnswerBox(${index})">Answer</button>` : ""}
+          ${isAdmin && !item.answer ? `<br><button onclick="showAnswerBox(${index})">Answer</button>` : ""}
         `;
         list.appendChild(doubtDiv);
       });
@@ -103,7 +107,7 @@
 
     function showAnswerBox(index) {
       selectedDoubtIndex = index;
-      document.getElementById("adminBox").style.display = "block";
+      document.getElementById("adminAnswerBox").style.display = "block";
     }
 
     function submitAnswer() {
@@ -112,14 +116,20 @@
       doubts[selectedDoubtIndex].answer = ans;
       localStorage.setItem("doubts", JSON.stringify(doubts));
       document.getElementById("answerInput").value = "";
-      document.getElementById("adminBox").style.display = "none";
+      document.getElementById("adminAnswerBox").style.display = "none";
       loadDoubts();
     }
 
-    // Replace this with real login check later
-    function isAdmin() {
-      // You can use a secret URL or password system
-      return window.location.href.includes("admin=true"); // Add `?admin=true` in URL
+    function loginAsAdmin() {
+      const pass = document.getElementById("adminPassword").value;
+      if (pass === "aditya123") {
+        isAdmin = true;
+        document.getElementById("adminLogin").style.display = "none";
+        loadDoubts();
+        alert("Welcome Aditya! You are now admin.");
+      } else {
+        alert("Wrong password!");
+      }
     }
 
     loadDoubts();
