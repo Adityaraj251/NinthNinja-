@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore Notes - Ninth Ninja</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Explore all Class 9 subject notes and questions including Science, Maths, SST, English, Sanskrit and IT." />
+  <meta name="keywords" content="Class 9 Notes, NCERT Questions, Ninth Ninja, Explore, Subjects" />
+  <meta name="author" content="Aditya Raj" />
+  <meta name="theme-color" content="#0d47a1" />
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #f0f4f8;
+      color: #0d47a1;
+    }
+
+    header {
+      background: #0d47a1;
+      color: white;
+      padding: 25px;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 50px 20px 30px;
+      background: linear-gradient(to right, #42a5f5, #1976d2);
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .subject-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 50px 30px;
+    }
+
+    .subject-card {
+      background: white;
+      width: 280px;
+      padding: 30px 25px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+      transition: 0.4s ease;
+      position: relative;
+    }
+
+    .subject-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+    }
+
+    .subject-icon {
+      width: 70px;
+      height: 70px;
+      background: #e3f2fd;
+      color: #0d47a1;
+      margin: auto;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .subject-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .subject-card p {
+      font-size: 0.95rem;
+      color: #333;
+      margin-bottom: 25px;
+    }
+
+    .explore-btn {
+      background: #0d47a1;
+      color: white;
+      border: none;
+      padding: 10px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .explore-btn:hover {
+      background: #1565c0;
+      box-shadow: 0 0 10px #90caf9;
+    }
+
+    footer {
+      background: #0d47a1;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .footer-links {
+      margin-top: 10px;
+    }
+
+    .footer-links a {
+      color: #bbdefb;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons {
+      margin-top: 12px;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 8px;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .subject-container {
+        padding: 30px 15px;
+      }
+      .subject-card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>Ninth Ninja</header>
+
+  <section class="hero">
+    <h1>📘 Explore Your Class 9 Subjects</h1>
+    <p>Click on your subject below to view chapter-wise notes, NCERT questions, diagrams, and solved examples — all in one place!</p>
+  </section>
+
+  <section class="subject-container">
+    <div class="subject-card">
+      <div class="subject-icon" style="background:#ffeaea; color:#f44336;"><i class="fas fa-flask"></i></div>
+      <h3>Science</h3>
+      <p>Physics, Chemistry & Biology — full notes + numericals + diagrams.</p>
+      <a href="science.html"><button class="explore-btn">Explore Notes</button></a>
+    </div>
+
+    <div class="subject-card">
+      <div class="subject-icon" style="background:#e8f5e9; color:#388e3c;"><i class="fas fa-square-root-alt"></i></div>
+      <h3>Maths</h3>
+      <p>Formulas, theorems, examples & practice questions with solutions.</p>
+      <a href="mathematics.html"><button class="explore-btn">Explore Notes</button></a>
+    </div>
+
+    <div class="subject-card">
+      <div class="subject-icon" style="background:#fff3e0; color:#ef6c00;"><i class="fas fa-globe-asia"></i></div>
+      <h3>SST</h3>
+      <p>History, Civics, Geography & Economics — concept maps + Q&A.</p>
+      <a href="sst.html"><button class="explore-btn">Explore Notes</button></a>
+    </div>
+
+    <div class="subject-card">
+      <div class="subject-icon" style="background:#e8eaf6; color:#3f51b5;"><i class="fas fa-book-open"></i></div>
+      <h3>English</h3>
+      <p>Summary, grammar rules, writing formats & literature solutions.</p>
+      <a href="English.html"><button class="explore-btn">Explore Notes</button></a>
+    </div>
+
+    <div class="subject-card">
+      <div class="subject-icon" style="background:#e0f2f1; color:#00796b;"><i class="fas fa-desktop"></i></div>
+      <h3>IT</h3>
+      <p>Full computer syllabus, MS Word, Excel, Digital tools & MCQs.</p>
+      <a href="Information technology.html"><button class="explore-btn">Explore Notes</button>
+    </div></a>
+
+    <div class="subject-card">
+      <div class="subject-icon" style="background:#f3e5f5; color:#8e24aa;"><i class="fas fa-language"></i></div>
+      <h3>Sanskrit</h3>
+      <p>Vyakaran, shlok meanings, abhyas-pustika Q&A and translations.</p>
+      <a href="sankarit.html"><button class="explore-btn">Explore Notes</button></a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Ninth Ninja | Designed by Aditya Raj | All rights reserved.
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy</a>
+    </div>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+  </footer>
+
+</body>
+</html>
