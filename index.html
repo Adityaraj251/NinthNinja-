@@ -50,6 +50,12 @@
       font-weight: 800;
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
     .nav-btn {
       background: #ffffff;
       color: #0d47a1;
@@ -64,6 +70,38 @@
     .nav-btn:hover {
       background: #e3f2fd;
       transform: translateY(-2px);
+    }
+
+    .menu-icon {
+      font-size: 26px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      right: 40px;
+      top: 80px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1000;
+      width: 220px;
+      overflow: hidden;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #0d47a1;
+      border-bottom: 1px solid #f0f0f0;
+      font-weight: 500;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f1f1f1;
     }
 
     .hero {
@@ -152,8 +190,6 @@
       .subject-card { width: 90%; }
     }
   </style>
-  <link rel="manifest" href="/manifest.json" />
-<meta name="theme-color" content="#2196f3" />
 </head>
 
 <body>
@@ -161,7 +197,18 @@
   <!-- Header -->
   <header>
     <div class="logo">Ninth Ninja</div>
-    <a href="Ninth Ninja.apk"><button class="nav-btn">Download App</button></a>
+    <div class="nav-actions">
+      <a href="Ninth Ninja.apk"><button class="nav-btn">Download App</button></a>
+      <span class="menu-icon" onclick="toggleMenu()">⋮</span>
+    </div>
+    <div class="dropdown-menu" id="dropdown">
+      <a href="#">📚 Class 9 Subjects</a>
+      <a href="#">📝 Notes</a>
+      <a href="#">❓ Practice Questions</a>
+      <a href="#">📥 Download PDFs</a>
+      <a href="doubt.html">🧠 Doubt Solving</a>
+      <a href="#">💬 Contact Us</a>
+    </div>
   </header>
 
   <!-- Hero Section -->
@@ -199,6 +246,23 @@
   <footer>
     © 2025 Ninth Ninja | Designed by Aditya Raj | All rights reserved.
   </footer>
+
+  <!-- JS for Menu -->
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById("dropdown");
+      menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+
+    window.onclick = function(e) {
+      if (!e.target.matches('.menu-icon')) {
+        var menu = document.getElementById("dropdown");
+        if (menu && menu.style.display === "block") {
+          menu.style.display = "none";
+        }
+      }
+    };
+  </script>
 
 </body>
 </html>
