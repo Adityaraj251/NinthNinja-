@@ -2,90 +2,203 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Doubt Solving - Ninth Ninja</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f0f8ff;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
       padding: 20px;
-      max-width: 800px;
+    }
+
+    .container {
+      max-width: 960px;
       margin: auto;
     }
+
     h1, h2 {
       text-align: center;
+      color: #90caf9;
+      text-shadow: 0 0 10px #2196f3;
+      margin-bottom: 20px;
     }
-    textarea {
+
+    .glass-box {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 20px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.37);
+      margin-bottom: 30px;
+    }
+
+    textarea, input[type="text"] {
       width: 100%;
-      padding: 10px;
+      padding: 15px;
       margin-top: 10px;
+      border-radius: 12px;
+      border: 1px solid #64b5f6;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 16px;
+      outline: none;
     }
+
+    textarea::placeholder, input::placeholder {
+      color: #ccc;
+    }
+
     button {
-      padding: 10px 20px;
-      background-color: #2196f3;
+      padding: 12px 25px;
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
       color: white;
       border: none;
       cursor: pointer;
-      border-radius: 6px;
-      margin-top: 10px;
+      border-radius: 10px;
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 16px;
+      box-shadow: 0 0 15px #2196f3;
+      transition: 0.4s;
+      width: 100%;
     }
+
+    button:hover {
+      box-shadow: 0 0 30px #00c6ff;
+      transform: scale(1.03);
+    }
+
     .doubt {
-      margin: 15px 0;
-      background: #e3f2fd;
-      padding: 10px;
-      border-left: 4px solid #2196f3;
+      background: rgba(33, 150, 243, 0.2);
+      padding: 15px;
+      border-left: 5px solid #42a5f5;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      animation: fadeIn 0.3s ease-in-out;
     }
+
     .answer {
-      background: #c8e6c9;
-      margin-left: 20px;
-      padding: 10px;
-      border-left: 4px solid #388e3c;
-      margin-top: 8px;
+      background: rgba(76, 175, 80, 0.2);
+      border-left: 5px solid #66bb6a;
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 10px;
     }
-    #adminAnswerBox {
-      display: none;
-      margin-top: 20px;
+
+    .timestamp {
+      font-size: 12px;
+      color: #bbb;
+      margin-top: 5px;
     }
+
     #adminToggle {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: transparent;
-      color: #2196f3;
-      font-size: 16px;
+      background: #000000aa;
+      color: #64b5f6;
+      font-weight: bold;
+      font-size: 14px;
       cursor: pointer;
-      border: 2px dashed #2196f3;
-      padding: 5px 10px;
-      border-radius: 8px;
-      opacity: 0.4;
+      border: 1px solid #64b5f6;
+      padding: 10px 18px;
+      border-radius: 30px;
+      z-index: 999;
+      transition: 0.3s;
     }
+
     #adminToggle:hover {
-      opacity: 1;
+      background: #2196f3;
+      color: white;
+    }
+
+    #scrollTop {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background: #1976d2;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+      box-shadow: 0 0 10px #0d47a1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    ::selection {
+      background: #2196f3;
+      color: white;
+    }
+
+    .divider {
+      height: 1px;
+      background: #64b5f6;
+      margin: 30px 0;
+      opacity: 0.3;
+    }
+
+    /* ✅ Responsive Design */
+    @media (max-width: 600px) {
+      h1, h2 {
+        font-size: 20px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 10px 15px;
+      }
+
+      textarea, input {
+        font-size: 14px;
+      }
+
+      .glass-box {
+        padding: 15px;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <h1>🧠 Ask Your Doubt</h1>
 
-  <h1>Post Your Doubt</h1>
+    <div class="glass-box">
+      <textarea id="doubtInput" placeholder="Type your doubt clearly..."></textarea>
+      <button onclick="postDoubt()">📩 Submit Doubt</button>
+    </div>
 
-  <div>
-    <textarea id="doubtInput" placeholder="Write your doubt..."></textarea>
-    <button onclick="postDoubt()">Submit Doubt</button>
-  </div>
+    <h2>📚 All Doubts</h2>
+    <input type="text" id="searchInput" onkeyup="filterDoubts()" placeholder="🔍 Search doubts..." />
+    <div id="doubtList" class="glass-box"></div>
 
-  <h2>All Doubts</h2>
-  <div id="doubtList"></div>
-
-  <!-- Admin Answer Box -->
-  <div id="adminAnswerBox">
-    <h3>Post Answer (Admin Only)</h3>
-    <textarea id="answerInput" placeholder="Type your answer..."></textarea>
-    <button onclick="submitAnswer()">Post Answer</button>
+    <!-- Admin Answer Box -->
+    <div id="adminAnswerBox" class="glass-box" style="display: none;">
+      <h3>🛠 Post Answer (Admin Only)</h3>
+      <textarea id="answerInput" placeholder="Write your answer here..."></textarea>
+      <button onclick="submitAnswer()">✅ Post Answer</button>
+    </div>
   </div>
 
   <!-- Admin Access Button -->
-  <div id="adminToggle" onclick="activateAdminMode()">
-    Admin Mode 🔒
-  </div>
+  <div id="adminToggle" onclick="activateAdminMode()">Admin Mode 🔒</div>
+
+  <!-- Scroll to top -->
+  <div id="scrollTop" onclick="scrollToTop()">⬆</div>
 
   <script>
     let doubts = JSON.parse(localStorage.getItem('doubts')) || [];
@@ -95,7 +208,8 @@
     function postDoubt() {
       const text = document.getElementById("doubtInput").value.trim();
       if (text === "") return;
-      doubts.push({ question: text, answer: "" });
+      const timestamp = new Date().toLocaleString();
+      doubts.push({ question: text, answer: "", time: timestamp });
       localStorage.setItem("doubts", JSON.stringify(doubts));
       document.getElementById("doubtInput").value = "";
       loadDoubts();
@@ -109,14 +223,14 @@
         const doubtDiv = document.createElement("div");
         doubtDiv.className = "doubt";
         doubtDiv.innerHTML = `
-          <strong>Doubt:</strong> ${item.question}
-          ${item.answer ? `<div class="answer"><strong>Answer:</strong> ${item.answer}</div>` : ""}
-          ${isAdmin && !item.answer ? `<br><button onclick="showAnswerBox(${index})">Answer</button>` : ""}
+          <strong>❓ Doubt:</strong> ${item.question}
+          <div class="timestamp">🕒 ${item.time}</div>
+          ${item.answer ? `<div class="answer"><strong>✔️ Answer:</strong> ${item.answer}</div>` : ""}
+          ${isAdmin && !item.answer ? `<br><button onclick="showAnswerBox(${index})">🖊 Answer</button>` : ""}
         `;
         list.appendChild(doubtDiv);
       });
 
-      // Update admin toggle button text
       document.getElementById("adminToggle").textContent = isAdmin ? "Admin Mode ✅" : "Admin Mode 🔒";
     }
 
@@ -143,7 +257,7 @@
         return;
       }
 
-      const pass = prompt("Enter Admin Password:");
+      const pass = prompt("🔐 Enter Admin Password:");
       if (pass === "ninjaaditya999") {
         isAdmin = true;
         localStorage.setItem('isAdmin', 'true');
@@ -154,8 +268,25 @@
       }
     }
 
+    function filterDoubts() {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      const allDoubts = document.querySelectorAll(".doubt");
+      allDoubts.forEach(div => {
+        const text = div.textContent.toLowerCase();
+        div.style.display = text.includes(query) ? "block" : "none";
+      });
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.onscroll = function () {
+      document.getElementById("scrollTop").style.display =
+        window.scrollY > 300 ? "block" : "none";
+    };
+
     loadDoubts();
   </script>
-
 </body>
 </html>
