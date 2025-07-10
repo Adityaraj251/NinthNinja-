@@ -12,14 +12,17 @@
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#0d47a1" />
 
-  <!-- OG Tags -->
+  <!-- ✅ Open Graph (Social Share Preview) -->
   <meta property="og:title" content="Ninth Ninja - Class 9 Notes & Questions" />
   <meta property="og:description" content="NCERT-based Class 9 study material for Science, Maths, SST, English & IT." />
-  <meta property="og:image" content="https://yourdomain.com/logo.png" />
-  <meta property="og:url" content="https://yourdomain.com" />
+  <meta property="og:image" content="logo.png" />
+  <meta property="og:url" content="https://ninthninja.netlify.app" />
   <meta property="og:type" content="website" />
 
-  <!-- Fonts -->
+  <!-- ✅ Favicon -->
+  <link rel="icon" href="logo.png" type="image/png" />
+
+  <!-- ✅ Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet" />
 
   <style>
@@ -45,9 +48,8 @@
       z-index: 999;
     }
 
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 800;
+    .logo img {
+      height: 45px;
     }
 
     .nav-actions {
@@ -194,25 +196,27 @@
 
 <body>
 
-  <!-- Header -->
+  <!-- ✅ Header with Image Logo -->
   <header>
-    <div class="logo">Ninth Ninja</div>
+    <div class="logo">
+  <img src="logo.png" alt="Ninth Ninja Logo" style="height: 80px; object-fit: contain;" />
+</div>
     <div class="nav-actions">
       <a href="Ninth Ninja.apk"><button class="nav-btn">Download App</button></a>
       <span class="menu-icon" onclick="toggleMenu()">⋮</span>
     </div>
     <div class="dropdown-menu" id="dropdown">
-  <a href="#">📚 Class 9 Subjects</a>
-  <a href="#">📝 Notes</a>
-  <a href="#">❓ Practice Questions</a>
-  <a href="#">📥 Download PDFs</a>
-  <a href="doubt.html">🧠 Doubt Solving</a>
-  <a href="#">💬 Contact Us</a>
-  <a href="#">🛠️ Admin Panel</a> <!-- ✅ New Admin Panel Link -->
-</div>
+      <a href="#">📚 Class 9 Subjects</a>
+      <a href="#">📝 Notes</a>
+      <a href="#">❓ Practice Questions</a>
+      <a href="#">📥 Download PDFs</a>
+      <a href="doubt.html">🧠 Doubt Solving</a>
+      <a href="#">💬 Contact Us</a>
+      <a href="#">🛠️ Admin Panel</a>
+    </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- ✅ Hero with H1 -->
   <section class="hero">
     <h1>Class 9 Made Simple & Smart</h1>
     <p>All your Class 9 subjects – Science, Maths, Social Science, English, IT – in one easy-to-use place. Notes, Questions, and Practice that actually help you score more.</p>
@@ -242,22 +246,22 @@
       <p>Units, exercises, MS Word, Excel & digital tech basics simplified.</p>
     </div>
   </section>
-  
+
   <!-- Footer -->
   <footer>
     © 2025 Ninth Ninja | Designed by Aditya Raj | All rights reserved.
   </footer>
 
-  <!-- JS for Menu -->
+  <!-- JavaScript for Dropdown -->
   <script>
     function toggleMenu() {
-      var menu = document.getElementById("dropdown");
+      const menu = document.getElementById("dropdown");
       menu.style.display = (menu.style.display === "block") ? "none" : "block";
     }
 
     window.onclick = function(e) {
       if (!e.target.matches('.menu-icon')) {
-        var menu = document.getElementById("dropdown");
+        const menu = document.getElementById("dropdown");
         if (menu && menu.style.display === "block") {
           menu.style.display = "none";
         }
