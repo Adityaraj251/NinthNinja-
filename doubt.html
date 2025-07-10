@@ -14,7 +14,7 @@
     h1, h2 {
       text-align: center;
     }
-    textarea, input[type="password"] {
+    textarea {
       width: 100%;
       padding: 10px;
       margin-top: 10px;
@@ -40,12 +40,25 @@
       padding: 10px;
       border-left: 4px solid #388e3c;
     }
-    #adminLogin {
-      margin: 20px auto;
-      max-width: 400px;
-      background: #fff3cd;
-      padding: 20px;
+    #adminAnswerBox {
+      display: none;
+      margin-top: 20px;
+    }
+    #adminToggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: transparent;
+      color: #2196f3;
+      font-size: 16px;
+      cursor: pointer;
+      border: 2px dashed #2196f3;
+      padding: 5px 10px;
       border-radius: 8px;
+      opacity: 0.4;
+    }
+    #adminToggle:hover {
+      opacity: 1;
     }
   </style>
 </head>
@@ -61,18 +74,16 @@
   <h2>All Doubts</h2>
   <div id="doubtList"></div>
 
-  <!-- Admin Login -->
-  <div id="adminLogin">
-    <h3>Admin Login (owner)</h3>
-    <input type="password" id="adminPassword" placeholder="Enter admin password">
-    <button onclick="loginAsAdmin()">Login</button>
-  </div>
-
   <!-- Admin Answer Box -->
-  <div id="adminAnswerBox" style="display:none;">
+  <div id="adminAnswerBox">
     <h3>Post Answer (Admin Only)</h3>
     <textarea id="answerInput" placeholder="Type your answer..."></textarea>
     <button onclick="submitAnswer()">Post Answer</button>
+  </div>
+
+  <!-- Hidden Admin Toggle Button -->
+  <div id="adminToggle" onclick="toggleAdmin()">
+    Admin Mode 🔒
   </div>
 
   <script>
@@ -120,16 +131,10 @@
       loadDoubts();
     }
 
-    function loginAsAdmin() {
-      const pass = document.getElementById("adminPassword").value;
-      if (pass === "I love u Aditya") {
-        isAdmin = true;
-        document.getElementById("adminLogin").style.display = "none";
-        loadDoubts();
-        alert("Welcome Aditya! You are now admin.");
-      } else {
-        alert("Wrong password!");
-      }
+    function toggleAdmin() {
+      isAdmin = !isAdmin;
+      document.getElementById("adminToggle").textContent = isAdmin ? "Admin Mode ✅" : "Admin Mode 🔒";
+      loadDoubts();
     }
 
     loadDoubts();
