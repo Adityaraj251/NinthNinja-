@@ -63,7 +63,7 @@
 
   <!-- Admin Login -->
   <div id="adminLogin">
-    <h3>Admin Login (Only for Aditya)</h3>
+    <h3>Admin Login (owner)</h3>
     <input type="password" id="adminPassword" placeholder="Enter admin password">
     <button onclick="loginAsAdmin()">Login</button>
   </div>
@@ -122,7 +122,7 @@
 
     function loginAsAdmin() {
       const pass = document.getElementById("adminPassword").value;
-      if (pass === "aditya123") {
+      if (pass === "I love u Aditya") {
         isAdmin = true;
         document.getElementById("adminLogin").style.display = "none";
         loadDoubts();
