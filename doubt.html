@@ -39,6 +39,7 @@
       margin-left: 20px;
       padding: 10px;
       border-left: 4px solid #388e3c;
+      margin-top: 8px;
     }
     #adminAnswerBox {
       display: none;
@@ -81,15 +82,15 @@
     <button onclick="submitAnswer()">Post Answer</button>
   </div>
 
-  <!-- Hidden Admin Toggle Button -->
-  <div id="adminToggle" onclick="toggleAdmin()">
+  <!-- Admin Access Button -->
+  <div id="adminToggle" onclick="activateAdminMode()">
     Admin Mode 🔒
   </div>
 
   <script>
     let doubts = JSON.parse(localStorage.getItem('doubts')) || [];
     let selectedDoubtIndex = null;
-    let isAdmin = false;
+    let isAdmin = localStorage.getItem('isAdmin') === 'true';
 
     function postDoubt() {
       const text = document.getElementById("doubtInput").value.trim();
@@ -114,6 +115,9 @@
         `;
         list.appendChild(doubtDiv);
       });
+
+      // Update admin toggle button text
+      document.getElementById("adminToggle").textContent = isAdmin ? "Admin Mode ✅" : "Admin Mode 🔒";
     }
 
     function showAnswerBox(index) {
@@ -131,10 +135,23 @@
       loadDoubts();
     }
 
-    function toggleAdmin() {
-      isAdmin = !isAdmin;
-      document.getElementById("adminToggle").textContent = isAdmin ? "Admin Mode ✅" : "Admin Mode 🔒";
-      loadDoubts();
+    function activateAdminMode() {
+      if (isAdmin) {
+        isAdmin = false;
+        localStorage.setItem('isAdmin', 'false');
+        loadDoubts();
+        return;
+      }
+
+      const pass = prompt("Enter Admin Password:");
+      if (pass === "ninjaaditya999") {
+        isAdmin = true;
+        localStorage.setItem('isAdmin', 'true');
+        alert("✅ Admin mode activated");
+        loadDoubts();
+      } else {
+        alert("❌ Incorrect Password");
+      }
     }
 
     loadDoubts();
