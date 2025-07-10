@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Class 9 All Subjects - Ninth Ninja</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #dbe6f6, #c5796d);
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+    .subject {
+      background: #fff;
+      border-radius: 15px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .subject h2 {
+      margin: 0;
+      font-size: 20px;
+      color: #1e272e;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .chapters {
+      display: none;
+      margin-top: 10px;
+      padding-left: 15px;
+    }
+    .chapters li {
+      margin-bottom: 8px;
+      color: #34495e;
+    }
+    .toggle-icon {
+      font-size: 22px;
+      transition: 0.3s;
+    }
+    .active .chapters {
+      display: block;
+    }
+    .active .toggle-icon {
+      transform: rotate(90deg);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📚 Class 9 - All Subjects & Chapters</h1>
+
+  <!-- Subject Template -->
+  <div class="subject" onclick="toggleSubject(this)">
+    <h2>Mathematics <span class="toggle-icon">▶</span></h2>
+    <ul class="chapters">
+      <li>1. Number Systems</li>
+      <li>2. Polynomials</li>
+      <li>3. Coordinate Geometry</li>
+      <li>4. Linear Equations in Two Variables</li>
+      <li>5. Introduction to Euclid's Geometry</li>
+      <li>6. Lines and Angles</li>
+      <li>7. Triangles</li>
+      <li>8. Quadrilaterals</li>
+      <li>9. Circles</li>
+      <li>10. Heron’s Formula</li>
+      <li>11. Surface Areas and Volumes</li>
+      <li>12. Statistics</li>
+      <li>13. Probability</li>
+    </ul>
+  </div>
+
+  <div class="subject" onclick="toggleSubject(this)">
+    <h2>Science <span class="toggle-icon">▶</span></h2>
+    <ul class="chapters">
+      <li>1. Matter in Our Surroundings</li>
+      <li>2. Is Matter Around Us Pure?</li>
+      <li>3. Atoms and Molecules</li>
+      <li>4. Structure of the Atom</li>
+      <li>5. The Fundamental Unit of Life</li>
+      <li>6. Tissues</li>
+      <li>7. Diversity in Living Organisms</li>
+      <li>8. Motion</li>
+      <li>9. Force and Laws of Motion</li>
+      <li>10. Gravitation</li>
+      <li>11. Work and Energy</li>
+      <li>12. Sound</li>
+      <li>13. Why Do We Fall Ill?</li>
+      <li>14. Natural Resources</li>
+      <li>15. Improvement in Food Resources</li>
+    </ul>
+  </div>
+
+  <div class="subject" onclick="toggleSubject(this)">
+  <h2>English <span class="toggle-icon">▶</span></h2>
+  <div class="chapters">
+    
+    <!-- 📘 Beehive -->
+    <p><strong>📘 Beehive (Main Textbook):</strong></p>
+    <ol>
+      <li>The Fun They Had</li>
+      <li>The Sound of Music</li>
+      <li>The Little Girl</li>
+      <li>A Truly Beautiful Mind</li>
+      <li>The Snake and the Mirror</li>
+      <li>My Childhood</li>
+      <li>Reach for the Top</li>
+      <li>Kathmandu</li>
+      <li>If I Were You</li>
+    </ol>
+    
+    <!-- 📗 Beehive Poems -->
+    <p><strong>📗 Beehive (Poems):</strong></p>
+    <ol>
+      <li>The Road Not Taken</li>
+      <li>Wind</li>
+      <li>Rain on the Roof</li>
+      <li>The Lake Isle of Innisfree</li>
+      <li>A Legend of the Northland</li>
+      <li>No Men Are Foreign</li>
+      <li>The Duck and the Kangaroo</li>
+      <li>On Killing a Tree</li>
+      <li>The Snake Trying</li>
+      <li>A Slumber Did My Spirit Seal</li>
+    </ol>
+    
+    <!-- 📙 Moments Supplementary -->
+    <p><strong>📙 Moments (Supplementary Reader):</strong></p>
+    <ol>
+      <li>The Lost Child</li>
+      <li>The Adventures of Toto</li>
+      <li>Iswaran the Storyteller</li>
+      <li>In the Kingdom of Fools</li>
+      <li>The Happy Prince</li>
+      <li>Weathering the Storm in Ersama</li>
+      <li>The Last Leaf</li>
+      <li>A House is Not a Home</li>
+      <li>The Beggar</li>
+    </ol>
+    
+    <!-- ✍️ Grammar & Writing -->
+    <p><strong>✍️ Grammar and Writing Skills:</strong></p>
+    <ol>
+      <li>Tenses</li>
+      <li>Modals</li>
+      <li>Reported Speech</li>
+      <li>Subject-Verb Agreement</li>
+      <li>Editing/Omission</li>
+      <li>Gap Filling</li>
+      <li>Paragraph Writing</li>
+      <li>Story Writing</li>
+      <li>Diary Entry</li>
+      <li>Formal & Informal Letters</li>
+    </ol>
+    
+  </div>
+</div>
+
+  <div class="subject" onclick="toggleSubject(this)">
+  <h2>Social Science (SST) <span class="toggle-icon">▶</span></h2>
+  <div class="chapters">
+    
+    <!-- 🌍 Geography -->
+    <p><strong>🌍 Geography:</strong></p>
+    <ol>
+      <li>India – Size and Location</li>
+      <li>Physical Features of India</li>
+      <li>Drainage</li>
+      <li>Climate</li>
+      <li>Natural Vegetation and Wildlife</li>
+      <li>Population</li>
+    </ol>
+    
+    <!-- 🏛️ History -->
+    <p><strong>🏛️ History:</strong></p>
+    <ol>
+      <li>The French Revolution</li>
+      <li>Socialism in Europe and the Russian Revolution</li>
+      <li>Nazism and the Rise of Hitler</li>
+      <li>Forest Society and Colonialism</li>
+      <li>Pastoralists in the Modern World</li>
+    </ol>
+    
+    <!-- ⚖️ Civics -->
+    <p><strong>⚖️ Civics (Political Science):</strong></p>
+    <ol>
+      <li>What is Democracy? Why Democracy?</li>
+      <li>Constitutional Design</li>
+      <li>Electoral Politics</li>
+      <li>Working of Institutions</li>
+      <li>Democratic Rights</li>
+    </ol>
+    
+    <!-- 💰 Economics -->
+    <p><strong>💰 Economics:</strong></p>
+    <ol>
+      <li>The Story of Village Palampur</li>
+      <li>People as Resource</li>
+      <li>Poverty as a Challenge</li>
+      <li>Food Security in India</li>
+    </ol>
+    
+  </div>
+</div>
+<div class="subject" onclick="toggleSubject(this)">
+  <h2>Information Technology <span class="toggle-icon">▶</span></h2>
+  <div class="chapters">
+    
+    <!-- 🧠 Part A: Employability Skills -->
+    <p><strong>🧠 Part A: Employability Skills</strong></p>
+    <ol>
+      <li>Communication Skills</li>
+      <li>Self-Management Skills</li>
+      <li>Information and Communication Technology (ICT) Skills</li>
+      <li>Entrepreneurial Skills</li>
+      <li>Green Skills</li>
+    </ol>
+    
+    <!-- 💻 Part B: Subject-Specific Skills -->
+    <p><strong>💻 Part B: Subject-Specific Skills</strong></p>
+    <ol>
+      <li>Introduction to IT-ITeS Industry</li>
+      <li>Digital Documentation (Advanced)</li>
+      <li>Electronic Spreadsheet (Advanced)</li>
+      <li>Digital Presentation</li>
+      <li>Internet and Web</li>
+      <li>Cyber Security</li>
+    </ol>
+    
+  </div>
+</div>
+<div class="subject" onclick="toggleSubject(this)">
+  <h2>संस्कृत (Sanskrit) <span class="toggle-icon">▶</span></h2>
+  <div class="chapters">
+    
+    <!-- 📖 शेमुषी – भाग 1 -->
+    <p><strong>📖 शेमुषी – भाग 1:</strong></p>
+    <ol>
+      <li>भारतीवसन्तगीतिः</li>
+      <li>स्वर्णकाकः</li>
+      <li>गदोहनम्</li>
+      <li>सूक्तिमौक्तिकम्</li>
+      <li>भ्रान्तो बालः</li>
+      <li>लोहतुला</li>
+      <li>सिकतासेतुः</li>
+      <li>जटायोः शौर्यम्</li>
+      <li>पर्यावरणम्</li>
+      <li>वाडमनः प्राणस्वरूपम्</li>
+    </ol>
+    
+    <!-- 📚 व्याकरण (Grammar) -->
+    <p><strong>📚 व्याकरण – Grammar Topics:</strong></p>
+    <ol>
+      <li>संधि</li>
+      <li>समास</li>
+      <li>कारक प्रयोग</li>
+      <li>धातुरूपाणि</li>
+      <li>प्रत्यय</li>
+    </ol>
+    
+    <!-- 📒 अभ्यास पुस्तिका -->
+    <p><strong>📒 अभ्यास पुस्तिका:</strong></p>
+    <ol>
+      <li>Unit 1 to 5 अभ्यास प्रश्न</li>
+    </ol>
+    
+  </div>
+</div>
+  <script>
+    function toggleSubject(subjectDiv) {
+      subjectDiv.classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>
